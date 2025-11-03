@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Pagination({ currentPage, totalPages, hasNext, hasPrevious, onNext, onPrevious, onPageChange }) {
-  // Generate page numbers to display
   const getPageNumbers = () => {
     const pages = [];
     

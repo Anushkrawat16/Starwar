@@ -10,7 +10,6 @@ const Starfield = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -19,7 +18,6 @@ const Starfield = () => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Create stars
     const stars = [];
     const starCount = 200;
 
@@ -33,9 +31,7 @@ const Starfield = () => {
       });
     }
 
-    // Animation
     const animate = () => {
-      // Use design system background color
       ctx.fillStyle = "hsl(222, 47%, 7%)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -45,16 +41,13 @@ const Starfield = () => {
         ctx.fillStyle = `rgba(255, 232, 31, ${star.opacity})`;
         ctx.fill();
 
-        // Move star
         star.y += star.speed;
 
-        // Reset star position when it goes off screen
         if (star.y > canvas.height) {
           star.y = 0;
           star.x = Math.random() * canvas.width;
         }
 
-        // Twinkle effect
         star.opacity += Math.random() * 0.02 - 0.01;
         star.opacity = Math.max(0.3, Math.min(0.8, star.opacity));
       });
